@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainCollection", "TrainCollection\TrainCollection.csproj", "{7DA5D4D6-44DD-40CB-8478-9BC0F296B73B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject1", "TestProject\TestProject1\TestProject1.csproj", "{C17244FF-F185-4D1F-A2BE-B9D5595120FC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainCollectionIsPrimeTests", "TrainCollectionIsPrimeTests\TrainCollectionIsPrimeTests.csproj", "{56B1F763-2B8F-45A8-8D21-29AE97E3BF95}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{7DA5D4D6-44DD-40CB-8478-9BC0F296B73B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DA5D4D6-44DD-40CB-8478-9BC0F296B73B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DA5D4D6-44DD-40CB-8478-9BC0F296B73B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C17244FF-F185-4D1F-A2BE-B9D5595120FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C17244FF-F185-4D1F-A2BE-B9D5595120FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C17244FF-F185-4D1F-A2BE-B9D5595120FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C17244FF-F185-4D1F-A2BE-B9D5595120FC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{56B1F763-2B8F-45A8-8D21-29AE97E3BF95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{56B1F763-2B8F-45A8-8D21-29AE97E3BF95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56B1F763-2B8F-45A8-8D21-29AE97E3BF95}.Release|Any CPU.ActiveCfg = Release|Any CPU
