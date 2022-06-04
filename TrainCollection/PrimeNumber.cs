@@ -50,9 +50,9 @@ namespace TrainCollection4
             var prime = new Prime();
             while (prime.CurrentPrime < result.Length)
             {
-                Prime.SetFalseOfMultiple(result, prime.CurrentPrime);
+                prime.SetFalseOfMultiple(result, prime.CurrentPrime);
 
-                prime.CurrentPrime = Prime.GetNextPrime(result, prime.CurrentPrime);
+                prime.CurrentPrime = prime.GetNextPrime(result, prime.CurrentPrime);
             }
             return result;
         }
@@ -83,7 +83,7 @@ namespace TrainCollection4
 
         public int CurrentPrime { get; internal set; } = 2;
 
-        public static void SetFalseOfMultiple(bool[] primeFlags, int prime)
+        public void SetFalseOfMultiple(bool[] primeFlags, int prime)
         {
             for (int i = prime * prime; i < primeFlags.Length; i += prime)
             {
@@ -91,7 +91,7 @@ namespace TrainCollection4
             }
         }
 
-        public static int GetNextPrime(bool[] primeFlags, int prime)
+        public int GetNextPrime(bool[] primeFlags, int prime)
         {
             prime++;
             while (prime < primeFlags.Length && !primeFlags[prime])
