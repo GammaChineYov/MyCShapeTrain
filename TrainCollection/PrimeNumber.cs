@@ -45,16 +45,8 @@ namespace TrainCollection4
 
         public static bool[] GetPrimeFlagsFor(int maxVals)
         {
-            bool[] result = new bool[maxVals];
-            for (int i = 2; i < result.Length; i++) result[i] = true;
             var prime = new Prime();
-            while (prime.CurrentPrime < result.Length)
-            {
-                prime.SetFalseOfMultiple(result, prime.CurrentPrime);
-
-                prime.CurrentPrime = prime.GetNextPrime(result, prime.CurrentPrime);
-            }
-            return result;
+            return prime.GetPrimeFlagsFor(maxVals);
         }
 
 
@@ -83,23 +75,35 @@ namespace TrainCollection4
 
         public int CurrentPrime { get; internal set; } = 2;
 
-        public void SetFalseOfMultiple(bool[] primeFlags, int prime)
+        public void SetFalseOfMultiple(bool[] primeFlags)
         {
-            for (int i = prime * prime; i < primeFlags.Length; i += prime)
+            for (int i = CurrentPrime * CurrentPrime; i < primeFlags.Length; i += CurrentPrime)
             {
                 primeFlags[i] = false;
             }
         }
 
-        public int GetNextPrime(bool[] primeFlags, int prime)
+        public int GetNextPrime(bool[] primeFlags)
         {
-            prime++;
-            while (prime < primeFlags.Length && !primeFlags[prime])
+            CurrentPrime++;
+            while (CurrentPrime < primeFlags.Length && !primeFlags[CurrentPrime])
             {
-                prime++;
+                CurrentPrime++;
             }
 
-            return prime;
+            return CurrentPrime;
+        }
+
+        public bool[] GetPrimeFlagsFor(int maxVals)
+        {
+            bool[] result = new bool[maxVals];
+            for (int i = 2; i < result.Length; i++) result[i] = true;
+            while (CurrentPrime < result.Length)
+            {
+                SetFalseOfMultiple(result);
+                CurrentPrime = GetNextPrime(result);
+            }
+            return result;
         }
     }
 }
