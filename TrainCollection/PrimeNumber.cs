@@ -81,7 +81,7 @@ namespace TrainCollection4
         {
         }
 
-        public int CurrentPrime { get; internal set; }
+        public int CurrentPrime { get; internal set; } = 2;
 
         public static void SetFalseOfMultiple(bool[] primeFlags, int prime)
         {
