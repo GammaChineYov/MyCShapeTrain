@@ -47,34 +47,16 @@ namespace TrainCollection4
         {
             bool[] result = new bool[maxVals];
             for (int i = 2; i < result.Length; i++) result[i] = true;
-            int prime = 2;
-            while (prime < result.Length)
+            var prime = new Prime();
+            while (prime.CurrentPrime < result.Length)
             {
-                SetFalseOfMultiple(result, prime);
+                Prime.SetFalseOfMultiple(result, prime.CurrentPrime);
 
-                prime = GetNextPrime(result, prime);
+                prime.CurrentPrime = Prime.GetNextPrime(result, prime.CurrentPrime);
             }
             return result;
         }
 
-        private static void SetFalseOfMultiple(bool[] primeFlags, int prime)
-        {
-            for (int i = prime * prime; i < primeFlags.Length; i += prime)
-            {
-                primeFlags[i] = false;
-            }
-        }
-
-        private static int GetNextPrime(bool[] primeFlags, int prime)
-        {
-            prime++;
-            while (prime < primeFlags.Length && !primeFlags[prime])
-            {
-                prime++;
-            }
-
-            return prime;
-        }
 
         public static bool CheckIsPrime(int input)
         {
@@ -93,4 +75,31 @@ namespace TrainCollection4
         }
     }
 
+    internal class Prime
+    {
+        public Prime()
+        {
+        }
+
+        public int CurrentPrime { get; internal set; }
+
+        public static void SetFalseOfMultiple(bool[] primeFlags, int prime)
+        {
+            for (int i = prime * prime; i < primeFlags.Length; i += prime)
+            {
+                primeFlags[i] = false;
+            }
+        }
+
+        public static int GetNextPrime(bool[] primeFlags, int prime)
+        {
+            prime++;
+            while (prime < primeFlags.Length && !primeFlags[prime])
+            {
+                prime++;
+            }
+
+            return prime;
+        }
+    }
 }
