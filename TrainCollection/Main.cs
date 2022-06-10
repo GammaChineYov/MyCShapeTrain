@@ -41,7 +41,7 @@ namespace TrainCollection
             for (int i = 0; i < inputVals.Length; i++)
             {
                 var input = inputVals[i];
-                bool isPrime = IsPrime(input);
+                bool isPrime = Prime.IsPrime(input);
                 if (rightVals.Contains(input) != isPrime)
                 {
                     Console.WriteLine($"Error: Input:{input} result:{isPrime}");
